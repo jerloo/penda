@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/jeremaihloo/meproxy/cmd"
+	"github.com/jerloo/penda/cmd"
 )
 
 func main() {

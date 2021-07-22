@@ -59,12 +59,17 @@ var serveCmd = &cobra.Command{
 }
 
 func handleClientRequest(client net.Conn) {
+	defer func() {
+		if r := recover(); r != nil {
+			log.Printf("遇到错误: %+v", r)
+		}
+	}()
 	if client == nil {
 		return
 	}
 	defer client.Close()
 	var b [1024]byte
-	n, err := client.Read(b[:])
+	_, err := client.Read(b[:])
 	if err != nil {
 		log.Println(err)
 		return
@@ -72,7 +77,10 @@ func handleClientRequest(client net.Conn) {
 	if b[0] == 0x05 { //只处理Socket5协议
 		//客户端回应：Socket服务端不需要验证方式
 		client.Write([]byte{0x05, 0x00})
-		n, err = client.Read(b[:])
+		n, err := client.Read(b[:])
+		if err != nil {
+			log.Printf("Error %+v", err)
+		}
 		var host, port string
 		switch b[3] {
 		case 0x01: //IP V4
