@@ -35,8 +35,8 @@ var port string
 // serveCmd represents the serve command
 var serveCmd = &cobra.Command{
 	Use:   "serve",
-	Short: "Serve meproxy on this machine.",
-	Long:  `Serve meproxy on this machine.`,
+	Short: "Serve penda on this machine.",
+	Long:  `Serve penda on this machine.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// TODO: Work your own magic here
 		log.SetFlags(log.LstdFlags | log.Lshortfile)

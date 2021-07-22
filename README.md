@@ -1,4 +1,4 @@
-# meproxy
+# penda
 
 > A simple command line tool for proxy some web requests using socks5.
 
@@ -6,31 +6,31 @@
 ## Installation
 
 ```console
-$ go get github.com/jeremaihloo/meproxy
+$ go install github.com/jerloo/penda
 
-# $GOPATH/bin/meproxy
+# penda
 ```
 
 ## Usage
 
 ```console
-$ meproxy --help
+$ penda --help
 
 A proxy command line tool.
 
 Usage:
-  meproxy [command]
+  penda [command]
 
 Available Commands:
   config      Config for current user.
   help        Help about any command
-  serve       Serve meproxy on this machine.
+  serve       Serve penda on this machine.
 
 Flags:
-      --config string   config file (default is $HOME/.meproxy.yaml)
+      --config string   config file (default is $HOME/.penda.yaml)
   -t, --toggle          Help message for toggle
 
-Use "meproxy [command] --help" for more information about a command.
+Use "penda [command] --help" for more information about a command.
 ```
 
 ## LICENSE
